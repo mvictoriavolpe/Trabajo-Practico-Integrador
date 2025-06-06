@@ -63,7 +63,7 @@ def recorrer_arbol(arbol_juego, primera_mano=False):
             print(f"Te plantaste con {sumar_mano()} puntos.")
             mostrar_puntuaciones(sumar_mano())
 
-
+##Simulando que la casa ""juega".
 #función que genere un valor entre 15 y 22 para simular partida de la casa.
 def puntos_de_la_casa():
     return random.randint(15,22)
