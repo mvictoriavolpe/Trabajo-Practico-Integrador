@@ -30,14 +30,13 @@ mano = [] #acá voy a guardar las cartas de los jugadores y acumular sus puntos.
 def sacar_carta(): #función para sacar cartas aleatorias
     carta_random=random.choice(cartas)
     mano.append(carta_random) 
-    print(f"Te tocó {carta_random}")
     return(carta_random)
 
 def sumar_mano():
     return sum(mano)
 
 
-def recorrer_arbol(arbol_juego, primera_vez=True):
+def recorrer_arbol(arbol_juego, primera_vez=False):
     if arbol_juego[1]==[] and arbol_juego[2]==[]: #condición para detectar hojas #además es el caso de corte para la recursión
         print("No hay mas nodos")
     
@@ -51,7 +50,7 @@ def recorrer_arbol(arbol_juego, primera_vez=True):
         empezar=input(f"¿Quieres pedir otra carta (1)?, o 'Plantarte'(2)?")
         
         if empezar == "1": #si el usuario "pide" carta:
-            print(f"Te tocó un {sacar_carta()}. Puntaje total: {sumar_mano()}")
+            print(f"Te tocó un {sacar_carta()}.")
             recorrer_arbol(arbol_juego[1]) #recorro recursivamente el subárbol izquierdo
 
         elif empezar == "2":
