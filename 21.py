@@ -76,4 +76,21 @@ def mostrar_puntuaciones(puntos):
     elif puntos == casa: print("Empate. La casa gana")
     else: print(f"Perdiste con {puntos}")
 
-recorrer_arbol(arbol_juego, primera_mano=True)
+def jugar_nuevamente():
+    while True:
+        respuesta = input("¿Quieres jugar otra vez? (si/no): ").lower()
+        if respuesta == "si":
+            return True
+        elif respuesta == "no":
+            print("¡Gracias por jugar!")
+            return False
+        else:
+            print("Entrada no válida. Por favor responde 'si' o 'no'.")
+while True:
+    mano.clear()  # Vaciar la mano antes de cada nuevo juego
+    recorrer_arbol(arbol_juego, primera_mano=True)  # Llamamos la función para iniciar un nuevo juego
+
+    # Si el jugador no quiere jugar de nuevo, salimos del bucle
+    if not jugar_nuevamente():
+        break
+
