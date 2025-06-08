@@ -1,65 +1,33 @@
-# Supongamos que este es el árbol de decisiones del test de personalidad
-# Estructura: [pregunta, rama_izquierda (sí), rama_derecha (no)]
-
-test_arbol = [
-    "¿Te gusta estudiar en grupo?",
-    [
-        "¿Preferís materias prácticas?",
-        "Sos un estudiante colaborativo y práctico.",
-        "Sos un estudiante colaborativo, pero te va mejor con lo teórico."
+# Cada nodo tiene: [Pregunta o Resultado, Rama Izquierda (respuesta 1), Rama Derecha (respuesta 2)]
+arbol_estudiante = [
+    "¿Cómo preferís estudiar?",
+    [  # izquierda = opción 1
+        "¿Te organizás con un horario fijo?",
+        ["Sos un/a estudiante ORGANIZADO/A ✅", [], []],
+        ["Sos un/a estudiante RESPONSABLE pero IMPROVISADOR/A ⏳", [], []]
     ],
-    [
-        "¿Sos muy organizado con tus tiempos?",
-        "Sos un estudiante independiente y metódico.",
-        "Sos un estudiante creativo y espontáneo."
+    [  # derecha = opción 2
+        "¿Te cuesta mantener la atención?",
+        ["Sos un/a estudiante ANSIOSO/A 😰", [], []],
+        ["Sos un/a estudiante RELAJADO/A 😎", [], []]
     ]
 ]
-
-# --- Función recursiva mejorada para recorrer el árbol y guardar el camino ---
-def recorrer_arbol(nodo, camino=None, nivel=0):
-    if camino is None:
-        camino = []
-
-    if isinstance(nodo, str):
-        print("\n🔍 Resultado final:")
-        print(f"→ {nodo}")
-        print("\n📍 Camino recorrido:")
-        for i, paso in enumerate(camino):
-            print(f"Nivel {i}: {paso[0]} → {paso[1]}")
-        print(f"\n📏 Profundidad total del nodo hoja: {len(camino)}")
+ef recorrer_test(arbol):
+    if arbol[1] == [] and arbol[2] == []:
+        print(f"\n🎯 Resultado: {arbol[0]}")
         return
 
-    pregunta, izq, der = nodo
-    print("\n" + "—" * 40)
-    print(f"{'  '*nivel}❓ {pregunta}")
-    respuesta = input(f"{'  '*nivel}▶ (s/n): ").lower()
+    print(f"\n❓ {arbol[0]}")
+    print("1) Opción 1")
+    print("2) Opción 2")
+    eleccion = input("Elegí 1 o 2: ")
 
-    if respuesta == "s":
-        camino.append((pregunta, "Sí"))
-        recorrer_arbol(izq, camino, nivel + 1)
+    if eleccion == "1":
+        recorrer_test(arbol[1])
+    elif eleccion == "2":
+        recorrer_test(arbol[2])
     else:
-        camino.append((pregunta, "No"))
-        recorrer_arbol(der, camino, nivel + 1)
+        print("⛔ Entrada inválida. Probá de nuevo.")
+        recorrer_test(arbol)  # Reintento
 
-# --- Función para contar nodos del árbol (peso total) ---
-def contar_nodos(nodo):
-    if isinstance(nodo, str):
-        return 1
-    pregunta, izq, der = nodo
-    return 1 + contar_nodos(izq) + contar_nodos(der)
-
-# --- Función para visualizar el árbol completo con indentación ---
-def mostrar_arbol(nodo, nivel=0):
-    if isinstance(nodo, str):
-        print("  " * nivel + f"🔹 Resultado: {nodo}")
-    else:
-        pregunta, izq, der = nodo
-        print("  " * nivel + f"🔸 Pregunta: {pregunta}")
-        mostrar_arbol(izq, nivel + 1)
-        mostrar_arbol(der, nivel + 1)
-
-# Ejecutar una demo (en tu programa principal se llamaría con input del usuario)
-# mostrar_arbol(test_arbol)
-# recorrer_arbol(test_arbol)
-# print("🧮 Peso total del árbol:", contar_nodos(test_arbol))
-"Funciones añadidas al código: recorrido mejorado, camino, profundidad, visualización y peso del árbol."
+recorrer_test(arbol_estudiante)

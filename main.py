@@ -1,4 +1,5 @@
 #Incorporamos un menú inicial 
+from  blackjack import jugar_blackjack
 
 def menu():
     while True:

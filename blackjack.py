@@ -86,11 +86,14 @@ def jugar_nuevamente():
             return False
         else:
             print("Entrada no válida. Por favor responde 'si' o 'no'.")
-while True:
-    mano.clear()  # Vaciar la mano antes de cada nuevo juego
-    recorrer_arbol(arbol_juego, primera_mano=True)  # Llamamos la función para iniciar un nuevo juego
 
-    # Si el jugador no quiere jugar de nuevo, salimos del bucle
-    if not jugar_nuevamente():
-        break
+def jugar_blackjack():
+
+    while True:
+        mano.clear()  # Vaciar la mano antes de cada nuevo juego
+        recorrer_arbol(arbol_juego, primera_mano=True)  # Llamamos la función para iniciar un nuevo juego
+
+        # Si el jugador no quiere jugar de nuevo, salimos del bucle
+        if not jugar_nuevamente():
+            break
 
