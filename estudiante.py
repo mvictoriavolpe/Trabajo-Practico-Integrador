@@ -5,7 +5,7 @@ arbol_estudiante = [
     [  # izquierda = opción 1 = SI
         "¿Te organizás con un horario fijo?",
         ["Sos un/a estudiante ORGANIZADO/A ", [], []],
-        ["Sos un/a estudiante RESPONSABLE pero IMPROVISADOR/A ", [], []]
+        ["Sos un/a estudiante RESPONSABLE pero IMPROVISADO/A ", [], []]
     ],
     [  # derecha = opción 2 = NO
         "¿Te cuesta mantener la atención?",
