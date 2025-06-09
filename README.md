@@ -7,6 +7,8 @@ Integrantes del equipo:
 Alexia Rubin
 María Victoria Volpe
 
+# Enlace a YouTube:
+
 
 # Descripción general
 Este trabajo práctico tiene como objetivo aplicar los conocimientos de árboles binarios, listas anidadas y recursividad mediante la creación de dos juegos interactivos. Se trabajó con estructuras lógicas y condicionales, se modelaron decisiones y caminos posibles usando árboles, y se utilizó Python como lenguaje principal para su implementación.
