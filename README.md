@@ -13,12 +13,11 @@ María Victoria Volpe
 # Descripción general
 Este trabajo práctico tiene como objetivo aplicar los conocimientos de árboles binarios, listas anidadas y recursividad mediante la creación de dos juegos interactivos. Se trabajó con estructuras lógicas y condicionales, se modelaron decisiones y caminos posibles usando árboles, y se utilizó Python como lenguaje principal para su implementación.
 
-# El proyecto incluye:
-
-Un juego de Blackjack simplificado usando un árbol binario de decisiones.
-Un test de personalidad tipo revista, que te dice qué tipo de estudiante sos, usando árboles binarios y recorrido recursivo.
 
 # Archivos principales
+Presentación en Canva
+Trabajo Práctico en PDF
+Video en YouTube
 main.py: menú principal del proyecto, permite elegir entre los dos juegos.
 blackjack.py: contiene la lógica del juego de Blackjack.
 test_estudiante.py: contiene el test de personalidad, estructura de árbol y recorrido recursivo.
