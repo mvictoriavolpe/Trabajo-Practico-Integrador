@@ -1,11 +1,11 @@
 # Trabajo-Pr-ctico-Integrador
-Tecnicatura Universitaria en Programación
-Trabajo Práctico Final – Estructuras de Datos y Python 
-Materia: Programación I
-Año: 2025
-Integrantes del equipo:
-Alexia Rubin
-María Victoria Volpe
+Tecnicatura Universitaria en Programación --
+Trabajo Práctico Final – Estructuras de Datos y Python  --
+Materia: Programación I --
+Año: 2025 --
+Integrantes del equipo: --
+Alexia Rubin --
+María Victoria Volpe --
 
 # Enlace a YouTube:
 
