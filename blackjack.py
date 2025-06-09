@@ -1,31 +1,20 @@
 import random
 #Arbol binario donde cada rama presenta una decisión: pedir carta o plantarse
 arbol_juego = [
-    "Empezar juego", #nodo padre, empieza el juego y reparte (A) 2 cartas.
-    ["Pedir carta", #nodo izq. Pedir carta
+    "Empezar juego", # empieza el juego y reparte 2 cartas.
+    ["Pedir carta", 
         ["Pedir carta",
             ["Pedir carta", [], []],
             ["Plantarse", [], []]
         ],
         ["Plantarse", [], []]
     ],
-    ["Plantarse", [], []] #nodo derecho se planta.
+    ["Plantarse", [], []]
 ]
 palos= ["♥", "♦", "♣", "♠"]
 cartas= [1,2,3,4,5,6,7,8,9,10]
 
-#Recorrer el arbol para ver que funciona 
-""" Estoy en: Empezar juego
-1. Ir a la izquierda: Pedir carta
-2. Ir a la derecha: Plantarse
-Elegí:   
-Nodo padre: Primero deberia empezar el juego y repartir 2 cartas.
-Hijo izquierdo: Pide carta
-HIjo derecho: se planta, no más nodos.
-Podria considerarse que sigue la lógica de preorder creo.
- """
-
-mano = [] #acá voy a guardar las cartas de los jugadores y acumular sus puntos.
+mano = [] #guardo y acumulo puntos de usuario
 
 def sacar_carta(): #función para sacar cartas aleatorias
     carta_random = random.choice(cartas)
@@ -39,7 +28,7 @@ def sumar_mano():
 
 
 def recorrer_arbol(arbol_juego, primera_mano=False):
-    if arbol_juego[1]==[] and arbol_juego[2]==[]: #condición para detectar hojas #además es el caso de corte para la recursión
+    if arbol_juego[1]==[] and arbol_juego[2]==[]: # caso de corte para la recursión
         print("\n🛑 No hay más nodos.\n")
     
     else:
@@ -50,8 +39,8 @@ def recorrer_arbol(arbol_juego, primera_mano=False):
         print(f"Puntos totales: {sumar_mano()}.") #sumo las cartas de la mano.
         empezar=input(f"¿Quieres pedir otra carta (1)?, o 'Plantarte'(2)? ")
 
-        if empezar == "1": #si el usuario "pide" carta:
-            print(f"Te tocó un {sacar_carta()}.") #saca 1
+        if empezar == "1": 
+            print(f"Te tocó un {sacar_carta()}.")
 
             if sumar_mano()>21: #verifica si se pasa de 21
                 print(f"💥 ¡Te pasaste! Perdiste con {sumar_mano()} puntos.")
@@ -77,30 +66,27 @@ def mostrar_puntuaciones(puntos):
     elif puntos == casa: print("Empate. La casa gana")
     else: print(f"Perdiste con {puntos}")
 
-def jugar_nuevamente():
-    while True:
-        respuesta = input("¿Quieres jugar otra vez? (si/no): ").lower()
-        if respuesta == "si":
-            return True
-        elif respuesta == "no":
-            print("¡Gracias por jugar!")
-            return False
-        else:
-            print("Entrada no válida. Por favor responde 'si' o 'no'.")
-
 def jugar_blackjack():
-
     while True:
         mano.clear()  # Vaciar la mano antes de cada nuevo juego
-        recorrer_arbol(arbol_juego, primera_mano=True)  # Llamamos la función para iniciar un nuevo juego
+        recorrer_arbol(arbol_juego, primera_mano=True)  # Iniciar un nuevo juego
 
-        # Si el jugador no quiere jugar de nuevo, salimos del bucle
-        if not jugar_nuevamente():
-            break
+        while True:
+            respuesta = input("¿Querés jugar otra vez? (si/no): ").lower()
+            if respuesta == "si":
+                break  # salir del bucle interno y volver a jugar
+            elif respuesta == "no":
+                print("¡Gracias por jugar!")
+                return  # Salir por completo
+            else:
+                print("Entrada no válida. Por favor responde 'si' o 'no'.")
+
+jugar_blackjack()
 
 
 
-        
+
+
 """
 #Breve análisis del árbol:
 def contar_nodos(arbol):
@@ -128,4 +114,3 @@ print(f"¿Está balanceado?: {'Sí' if esta_balanceado(arbol_juego) else 'No'}")
 """
 
 
-recorrer_arbol(arbol_juego, primera_mano=True)
