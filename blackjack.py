@@ -1,16 +1,20 @@
 
 #Arbol binario donde cada rama presenta una decisión: pedir carta o plantarse
+
 arbol_juego = [
-    "Empezar juego", # empieza el juego y reparte 2 cartas.
+    "Empezar juego",
     ["Pedir carta", 
-        ["Pedir carta",
-            ["Pedir carta", [], []],
+        ["Pedir carta", 
+            ["Pedir carta", ["Pedir carta", [], []], ["Plantarse", [], []]], 
             ["Plantarse", [], []]
-        ],
+        ], 
         ["Plantarse", [], []]
     ],
     ["Plantarse", [], []]
 ]
+
+
+
 palos= ["♥", "♦", "♣", "♠"]
 cartas= [1,2,3,4,5,6,7,8,9,10]
 
@@ -88,32 +92,25 @@ def jugar_blackjack():
 #analisis del arbol
 
 def contar_nodos(arbol):
-    if not arbol or arbol == []:
+    if arbol == []:
         return 0
     return 1 + contar_nodos(arbol[1]) + contar_nodos(arbol[2])
 
 def calcular_altura(arbol):
-    if not arbol or arbol == []:
+    if arbol == []:
         return 0
     return 1 + max(calcular_altura(arbol[1]), calcular_altura(arbol[2]))
 
-
 def contar_hojas(arbol):
-    if not arbol or arbol == []:
-        return 0
     if arbol[1] == [] and arbol[2] == []:
         return 1
     return contar_hojas(arbol[1]) + contar_hojas(arbol[2])
 
-print(arbol_juego)
-
+# --- Análisis del árbol ---
 print("\n📊 Análisis del árbol:")
-print(f"- Nodos totales: {contar_nodos(arbol_juego)}")
-print(f"- Altura del árbol: {calcular_altura(arbol_juego)}")
-print(f"- Total de hojas: {contar_hojas(arbol_juego)}")
-
-
-
+print(f"- Nodos totales: {contar_nodos(arbol_juego)}")     # 9
+print(f"- Altura del árbol: {calcular_altura(arbol_juego)}")  # 4
+print(f"- Total de hojas: {contar_hojas(arbol_juego)}")   # 5
 
 
 
