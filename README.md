@@ -15,13 +15,13 @@ Este trabajo práctico tiene como objetivo aplicar los conocimientos de árboles
 
 
 # Archivos principales
-Presentación en Canva
-Trabajo Práctico en PDF
-Video en YouTube
-main.py: menú principal del proyecto, permite elegir entre los dos juegos.
-blackjack.py: contiene la lógica del juego de Blackjack.
-test_estudiante.py: contiene el test de personalidad, estructura de árbol y recorrido recursivo.
-README.md: este archivo.
+Presentación en Canva --
+Trabajo Práctico en PDF --
+Video en YouTube  --
+main.py: menú principal del proyecto, permite elegir entre los dos juegos. --
+blackjack.py: contiene la lógica del juego de Blackjack. --
+test_estudiante.py: contiene el test de personalidad, estructura de árbol y recorrido recursivo. --
+README.md: este archivo. --
 
 
 # Juego 1: Blackjack con árbol de decisiones
