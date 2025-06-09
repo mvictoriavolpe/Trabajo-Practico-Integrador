@@ -1,4 +1,4 @@
-import random
+
 #Arbol binario donde cada rama presenta una decisión: pedir carta o plantarse
 arbol_juego = [
     "Empezar juego", # empieza el juego y reparte 2 cartas.
@@ -14,6 +14,8 @@ arbol_juego = [
 palos= ["♥", "♦", "♣", "♠"]
 cartas= [1,2,3,4,5,6,7,8,9,10]
 
+"""
+import random
 mano = [] #guardo y acumulo puntos de usuario
 
 def sacar_carta(): #función para sacar cartas aleatorias
@@ -28,12 +30,13 @@ def sumar_mano():
 
 
 def recorrer_arbol(arbol_juego, primera_mano=False):
+
     if arbol_juego[1]==[] and arbol_juego[2]==[]: # caso de corte para la recursión
         print("\n🛑 No hay más nodos.\n")
     
     else:
         if primera_mano:
-            print(f"\n🎲 {arbol_juego[0]}") #si es la primera mano imprimo el nodo padre y reparto 2
+            print(f"\n🎲 {arbol_juego[0]}") 
             print(f"Te tocó {sacar_carta()} y un {sacar_carta()}.")
 
         print(f"Puntos totales: {sumar_mano()}.") #sumo las cartas de la mano.
@@ -77,18 +80,52 @@ def jugar_blackjack():
                 break  # salir del bucle interno y volver a jugar
             elif respuesta == "no":
                 print("¡Gracias por jugar!")
-                return  # Salir por completo
+                return  # salir por completo
             else:
                 print("Entrada no válida. Por favor responde 'si' o 'no'.")
+"""
 
-jugar_blackjack()
+#analisis del arbol
+
+def contar_nodos(arbol):
+    if not arbol or arbol == []:
+        return 0
+    return 1 + contar_nodos(arbol[1]) + contar_nodos(arbol[2])
+
+def calcular_altura(arbol):
+    if not arbol or arbol == []:
+        return 0
+    return 1 + max(calcular_altura(arbol[1]), calcular_altura(arbol[2]))
+
+
+def contar_hojas(arbol):
+    if not arbol or arbol == []:
+        return 0
+    if arbol[1] == [] and arbol[2] == []:
+        return 1
+    return contar_hojas(arbol[1]) + contar_hojas(arbol[2])
+
+print(arbol_juego)
+
+print("\n📊 Análisis del árbol:")
+print(f"- Nodos totales: {contar_nodos(arbol_juego)}")
+print(f"- Altura del árbol: {calcular_altura(arbol_juego)}")
+print(f"- Total de hojas: {contar_hojas(arbol_juego)}")
+
+
 
 
 
 
 
 """
+
+
+
+
+
 #Breve análisis del árbol:
+
 def contar_nodos(arbol):
     if arbol == []:
         return 0
