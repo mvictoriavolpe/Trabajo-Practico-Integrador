@@ -71,6 +71,7 @@ def puntos_de_la_casa():
 def mostrar_puntuaciones(puntos):
     casa = puntos_de_la_casa() #guardo el valor de la función en la variable casa, asi no la llamo ochenta veces.
     print(f"La casa hizo {casa} puntos.")
+    if casa>21: print(f"Ganaste! la casa se pasó con {casa}")
     if puntos > 21: print(f"Te pasaste con {puntos}")
     elif puntos > casa: print(f"Ganaste con {puntos}")
     elif puntos == casa: print("Empate. La casa gana")
@@ -97,3 +98,34 @@ def jugar_blackjack():
         if not jugar_nuevamente():
             break
 
+
+
+        
+"""
+#Breve análisis del árbol:
+def contar_nodos(arbol):
+    if arbol == []:
+        return 0
+    return 1 + contar_nodos(arbol[1]) + contar_nodos(arbol[2])
+
+def altura_arbol(arbol):
+    if arbol == []:
+        return 0
+    return 1 + max(altura_arbol(arbol[1]), altura_arbol(arbol[2]))
+
+def esta_balanceado(arbol):
+    if arbol == []:
+        return True
+    alt_izq = altura_arbol(arbol[1])
+    alt_der = altura_arbol(arbol[2])
+    return abs(alt_izq - alt_der) <= 1 and esta_balanceado(arbol[1]) and esta_balanceado(arbol[2])
+
+print("\n--- Propiedades del árbol de decisiones ---")
+print(f"Número total de nodos: {contar_nodos(arbol_juego)}")
+print(f"Altura del árbol: {altura_arbol(arbol_juego)}")
+print(f"¿Está balanceado?: {'Sí' if esta_balanceado(arbol_juego) else 'No'}")
+
+"""
+
+
+recorrer_arbol(arbol_juego, primera_mano=True)
