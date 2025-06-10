@@ -1,4 +1,4 @@
-
+import random
 #Arbol binario donde cada rama presenta una decisión: pedir carta o plantarse
 
 arbol_juego = [
@@ -18,8 +18,7 @@ arbol_juego = [
 palos= ["♥", "♦", "♣", "♠"]
 cartas= [1,2,3,4,5,6,7,8,9,10]
 
-"""
-import random
+
 mano = [] #guardo y acumulo puntos de usuario
 
 def sacar_carta(): #función para sacar cartas aleatorias
@@ -87,7 +86,7 @@ def jugar_blackjack():
                 return  # salir por completo
             else:
                 print("Entrada no válida. Por favor responde 'si' o 'no'.")
-"""
+
 
 #analisis del arbol
 
@@ -106,45 +105,11 @@ def contar_hojas(arbol):
         return 1
     return contar_hojas(arbol[1]) + contar_hojas(arbol[2])
 
-# --- Análisis del árbol ---
+
 print("\n📊 Análisis del árbol:")
-print(f"- Nodos totales: {contar_nodos(arbol_juego)}")     # 9
-print(f"- Altura del árbol: {calcular_altura(arbol_juego)}")  # 4
-print(f"- Total de hojas: {contar_hojas(arbol_juego)}")   # 5
+print(f"- Nodos totales: {contar_nodos(arbol_juego)}")     
+print(f"- Altura del árbol: {calcular_altura(arbol_juego)}")  
+print(f"- Total de hojas: {contar_hojas(arbol_juego)}")   
 
-
-
-
-"""
-
-
-
-
-
-#Breve análisis del árbol:
-
-def contar_nodos(arbol):
-    if arbol == []:
-        return 0
-    return 1 + contar_nodos(arbol[1]) + contar_nodos(arbol[2])
-
-def altura_arbol(arbol):
-    if arbol == []:
-        return 0
-    return 1 + max(altura_arbol(arbol[1]), altura_arbol(arbol[2]))
-
-def esta_balanceado(arbol):
-    if arbol == []:
-        return True
-    alt_izq = altura_arbol(arbol[1])
-    alt_der = altura_arbol(arbol[2])
-    return abs(alt_izq - alt_der) <= 1 and esta_balanceado(arbol[1]) and esta_balanceado(arbol[2])
-
-print("\n--- Propiedades del árbol de decisiones ---")
-print(f"Número total de nodos: {contar_nodos(arbol_juego)}")
-print(f"Altura del árbol: {altura_arbol(arbol_juego)}")
-print(f"¿Está balanceado?: {'Sí' if esta_balanceado(arbol_juego) else 'No'}")
-
-"""
 
 
